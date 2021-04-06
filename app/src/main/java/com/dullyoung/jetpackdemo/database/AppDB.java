@@ -13,7 +13,8 @@ import com.dullyoung.jetpackdemo.database.bean.UserInfo;
  * @author Dullyoung
  * Created by　Dullyoung on 2021/4/6
  **/
-@Database(entities = {UserInfo.class}, version = 1)
+
+@Database(entities = {UserInfo.class}, version = 1, exportSchema = false)
 public abstract class AppDB extends RoomDatabase {
     private static AppDB mAppDB;
 

@@ -1,28 +1,29 @@
-package com.dullyoung.jetpackdemo;
+package com.dullyoung.jetpackdemo.controller.activities;
 
-import android.os.Bundle;
+import android.graphics.Color;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import com.dullyoung.jetpackdemo.MWorkManager;
 import com.dullyoung.jetpackdemo.database.AppDB;
 import com.dullyoung.jetpackdemo.database.bean.UserInfo;
+import com.dullyoung.jetpackdemo.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     public static final String TAG = "aaaa";
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void initViews() {
         //room();
         // enqueueWork();
+        mBinding.tvText.setTextColor(Color.RED);
     }
 
     //room sql

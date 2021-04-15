@@ -1,7 +1,13 @@
 package com.dullyoung.jetpackdemo.controller.activities;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.View;
 
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
@@ -14,6 +20,8 @@ import com.dullyoung.jetpackdemo.database.AppDB;
 import com.dullyoung.jetpackdemo.database.bean.UserInfo;
 import com.dullyoung.jetpackdemo.databinding.ActivityMainBinding;
 
+import java.util.List;
+
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     public static final String TAG = "aaaa";
@@ -24,6 +32,43 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         //room();
         // enqueueWork();
         mBinding.tvText.setTextColor(Color.RED);
+        mBinding.tvText.setOnClickListener(v -> {
+            onClickOne();
+        });
+    }
+
+    private void restartLauncher() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> resolves = pm.queryIntentActivities(intent, 0);
+        for (ResolveInfo res : resolves) {
+            if (res.activityInfo != null) {
+                ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                am.killBackgroundProcesses(res.activityInfo.packageName);
+            }
+        }
+    }
+
+    public void onClickOne() {
+        ComponentName name1 = new ComponentName(this, "com.dullyoung.jetpackdemo.name1");
+        ComponentName name2 = new ComponentName(this, "com.dullyoung.jetpackdemo.name2");
+        PackageManager pm = getPackageManager();
+        // 当前是1 就切换到 2  ，当前是2 就切换到1
+        if (pm.getComponentEnabledSetting(name1) == PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
+            pm.setComponentEnabledSetting(name1,
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            pm.setComponentEnabledSetting(name2,
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        } else {
+            pm.setComponentEnabledSetting(name2,
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            pm.setComponentEnabledSetting(name1,
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        }
+
+        restartLauncher();
     }
 
     //room sql

@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.work.Constraints;
 import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
@@ -16,6 +18,8 @@ import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
 import com.dullyoung.jetpackdemo.MWorkManager;
+import com.dullyoung.jetpackdemo.controller.viewModel.NameViewModel;
+import com.dullyoung.jetpackdemo.controller.viewModel.UserInfoViewModel;
 import com.dullyoung.jetpackdemo.database.AppDB;
 import com.dullyoung.jetpackdemo.database.bean.UserInfo;
 import com.dullyoung.jetpackdemo.databinding.ActivityMainBinding;
@@ -34,6 +38,37 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.tvText.setTextColor(Color.RED);
         mBinding.tvText.setOnClickListener(v -> {
             onClickOne();
+        });
+
+        //livedata+vm
+        NameViewModel nameViewModel = new ViewModelProvider(this).get(NameViewModel.class);
+        Observer<String> nameObserver = s -> {
+            mBinding.tvName.setText(s);
+            Log.i(TAG, "nameObserver: " + s);
+        };
+        //跟随生命周期变化 仅当ac在前台运行时执行回调 否则视图不会自动变化 持久监听数据用observeForever
+        //nameViewModel.getName().observeForever(nameObserver);
+        nameViewModel.getName().observe(this, nameObserver);
+
+        Observer<UserInfo> userInfoObserver = userInfo -> {
+            Log.i(TAG, "initViews: " + userInfo);
+            mBinding.tvUserPid.setText(userInfo.uid + "");
+            mBinding.tvFirstName.setText(userInfo.firstName);
+            mBinding.tvAddress.setText(userInfo.address);
+        };
+
+        UserInfoViewModel userInfoViewModel = UserInfoViewModel.getInstance(this);
+        userInfoViewModel.getUserInfoMutableLiveData().observe(this, userInfoObserver);
+
+        mBinding.btnVmPost.setOnClickListener(view -> {
+            nameViewModel.postName();
+        });
+
+        mBinding.btnSetName.setOnClickListener(view -> {
+            nameViewModel.getName().setValue(mBinding.etName.getText().toString());
+        });
+        mBinding.btnLogin.setOnClickListener(view -> {
+            startActivity(new Intent(this, LoginActivity.class));
         });
     }
 

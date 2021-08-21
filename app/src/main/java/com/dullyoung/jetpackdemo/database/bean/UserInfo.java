@@ -25,4 +25,14 @@ public class UserInfo {
     @ColumnInfo(name = "address")
     public String address;
 
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "uid=" + uid +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age='" + age + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

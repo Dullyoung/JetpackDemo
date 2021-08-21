@@ -5,6 +5,6 @@
 - WorkManager
   - OneTimeWorkRequest
   - PeriodicWorkRequest
-
+- liveData+viewModel
 ### others
 - add use Activity-alias to change app name and icon support

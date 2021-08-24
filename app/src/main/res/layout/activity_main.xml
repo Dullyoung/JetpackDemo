@@ -78,4 +78,8 @@
             android:text="nav2MockLogin" />
     </LinearLayout>
 
+    <com.dullyoung.jetpackdemo.view.CountDownView
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+
 </LinearLayout>

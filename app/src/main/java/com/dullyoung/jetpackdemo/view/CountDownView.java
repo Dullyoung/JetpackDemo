@@ -126,7 +126,7 @@ public class CountDownView extends View {
     }
 
     public void setPointAngle(float x, float y) {
-        pointAngle = getHandlePosition(x - getWidth() / 2f, y - getWidth() / 2f);
+        pointAngle = getHandlePosition(x, y);
         int sec = pointAngle / 6;
         if (sec == 60) {
             time = "1:00";

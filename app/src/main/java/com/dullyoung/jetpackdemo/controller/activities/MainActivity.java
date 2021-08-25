@@ -39,6 +39,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.tvText.setOnClickListener(v -> {
             onClickOne();
         });
+        mBinding.btnLoading.setOnClickListener(v -> {
+            mBinding.pmv.loading();
+        });
+        mBinding.btnFail.setOnClickListener(v -> {
+            mBinding.pmv.onFail();
+        });
+        mBinding.btnSuccess.setOnClickListener(v -> {
+            mBinding.pmv.onSuccess();
+        });
 
         //livedata+vm
         NameViewModel nameViewModel = new ViewModelProvider(this).get(NameViewModel.class);

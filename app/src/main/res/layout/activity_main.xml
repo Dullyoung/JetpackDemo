@@ -53,8 +53,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_user_pid"
@@ -78,8 +78,39 @@
             android:text="nav2MockLogin" />
     </LinearLayout>
 
-    <com.dullyoung.jetpackdemo.view.CountDownView
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加载" />
+
+            <Button
+                android:id="@+id/btn_fail"
+                android:layout_width="wrap_content"
+                android:text="失败"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_success"
+                android:layout_width="wrap_content"
+                android:text="成功"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <com.dullyoung.jetpackdemo.view.PathMeasureView
+            android:id="@+id/pmv"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
 
 </LinearLayout>

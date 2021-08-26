@@ -7,5 +7,7 @@
   - PeriodicWorkRequest
 - liveData+viewModel
 ### others
-- add use Activity-alias to change app name and icon support
+- Use Activity-alias to change app name and icon
 - Custom view
+- How to use bezier
+- How to resolve nested view scroll clash -> to see BezierView onTouchEvent

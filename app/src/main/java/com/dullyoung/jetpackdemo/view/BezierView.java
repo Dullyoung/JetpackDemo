@@ -45,12 +45,12 @@ public class BezierView extends View {
         mPaint.setColor(Color.RED);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(50);
+        mPaint.setStrokeWidth(20);
         mPaint.setDither(true);
         mPath = new Path();
-        point = new Point(100, 600);
-        point2 = new Point(700, 0);
-        point3 = new Point(600, 300);
+        point = new Point(0, 100);
+        point2 = new Point(50, 0);
+        point3 = new Point(100, 100);
     }
 
     Point point, point2, point3;
@@ -59,10 +59,14 @@ public class BezierView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mPath.reset();
+        //绘制锯齿边
+//        for (int i = 0; i < getWidth(); i += 100) {
+//            mPath.moveTo(point.x + i, point.y);
+//            mPath.quadTo(point2.x + i, point2.y, point3.x + i, point3.y);
+//        }
         mPath.moveTo(point.x, point.y);
-        mPath.quadTo(point2.x, point2.y, point3.x, point3.y);
+        mPath.quadTo(point2.x , point2.y, point3.x, point3.y);
         canvas.drawPath(mPath, mPaint);
-
         mPaint.setColor(Color.BLACK);
         canvas.drawPoint(point.x, point.y, mPaint);
         canvas.drawPoint(point2.x, point2.y, mPaint);

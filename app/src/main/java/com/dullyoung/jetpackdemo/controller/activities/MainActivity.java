@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.work.Constraints;
@@ -24,7 +25,13 @@ import com.dullyoung.jetpackdemo.database.AppDB;
 import com.dullyoung.jetpackdemo.database.bean.UserInfo;
 import com.dullyoung.jetpackdemo.databinding.ActivityMainBinding;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
@@ -33,6 +40,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initViews() {
+        mBinding.dl.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                //计算缩放百分比，主视图只需要轻微缩放 所以抽屉完全展开 仅缩放10就够了 所以 1 - slideOffset/10
+                float percent = 1 - slideOffset / 10;
+                mBinding.llMain.setScaleX(percent);
+                mBinding.llMain.setScaleY(percent);
+            }
+        });
+
         //room();
         // enqueueWork();
         mBinding.tvText.setTextColor(Color.RED);
@@ -79,6 +97,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.btnLogin.setOnClickListener(view -> {
             startActivity(new Intent(this, LoginActivity.class));
         });
+        rxTest();
     }
 
     private void restartLauncher() {
@@ -154,5 +173,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         WorkRequest workRequest = new OneTimeWorkRequest.Builder(MWorkManager.class)
                 .build();
         WorkManager.getInstance(this).enqueue(workRequest);
+    }
+
+    private void rxTest() {
+
     }
 }

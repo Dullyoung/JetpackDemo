@@ -11,10 +11,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-/*
- *  Created by Dullyoung in  2021/4/6
+
+/**
+ * Created by @author Dullyoung in  2021/4/6
  */
-public class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
+public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
     protected T mBinding;
 
     @Override
@@ -32,7 +33,5 @@ public class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
         initViews();
     }
 
-    protected void initViews() {
-
-    }
+    protected abstract void initViews();
 }

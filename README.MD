@@ -6,6 +6,7 @@
   - OneTimeWorkRequest
   - PeriodicWorkRequest
 - liveData+viewModel
+- DrawLayout
 ### others
 - Use Activity-alias to change app name and icon
 - Custom view

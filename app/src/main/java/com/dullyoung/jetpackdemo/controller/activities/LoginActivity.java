@@ -18,7 +18,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
     @Override
     protected void initViews() {
-        super.initViews();
         UserInfoViewModel userInfoViewModel = UserInfoViewModel.getInstance(this);
         mBinding.btnLogin.setOnClickListener(view -> {
             UserInfo userInfo = new UserInfo();

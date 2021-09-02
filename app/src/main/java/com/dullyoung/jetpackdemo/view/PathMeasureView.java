@@ -114,7 +114,6 @@ public class PathMeasureView extends View {
             if (successPercent > 0.5) {
                 if (isnext) {
                     endD = successPathMeasure.getLength() * 2 * (successPercent - 0.5f);
-                    Log.i(TAG, "onDraw: " + "end-----" + endD);
                 } else {
                     isnext = successPathMeasure.nextContour();
                     endD = successPathMeasure.getLength() * (successPercent - 0.5f);

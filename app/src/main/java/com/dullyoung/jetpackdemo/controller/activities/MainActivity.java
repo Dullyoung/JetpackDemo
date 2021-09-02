@@ -48,6 +48,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 float percent = 1 - slideOffset / 10;
                 mBinding.llMain.setScaleX(percent);
                 mBinding.llMain.setScaleY(percent);
+
+                int radius = (int) (slideOffset * 20 * getResources().getDisplayMetrics().density + 0.5f);
+                mBinding.cvMain.setRadius(radius);
             }
         });
 

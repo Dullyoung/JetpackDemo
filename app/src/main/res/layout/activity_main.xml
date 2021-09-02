@@ -7,198 +7,207 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/dl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#5fa844">
+        android:background="#5fa844"
+        android:orientation="vertical">
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:layout_height="match_parent">
 
-        <ScrollView
-
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp">
 
 
-            <LinearLayout
+            <ScrollView
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent">
 
-                android:orientation="vertical">
 
-                <com.dullyoung.jetpackdemo.view.MenuItem
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <com.dullyoung.jetpackdemo.view.MenuItem
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorAccent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:text="你的好友给你发来一条消息说你是憨憨~~~">
+
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimary"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="置顶" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="删除" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="未读" />
+                        </LinearLayout>
+
+                    </com.dullyoung.jetpackdemo.view.MenuItem>
+
+
+                    <com.dullyoung.jetpackdemo.view.BezierView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更换app名称并关闭app"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorAccent">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_height="match_parent"
-                            android:text="你的好友给你发来一条消息说你是憨憨~~~">
-
-                        </TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="置顶" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="删除" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="未读" />
-                    </LinearLayout>
-
-                </com.dullyoung.jetpackdemo.view.MenuItem>
-
-
-                <com.dullyoung.jetpackdemo.view.BezierView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
-
-
-                <TextView
-                    android:id="@+id/tv_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="更换app名称并关闭app"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/et_name"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:hint="input name value" />
-
-                        <Button
-                            android:id="@+id/btn_set_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="setName" />
-
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/btn_vm_post"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="VM POST VALUE" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_user_pid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tv_first_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tv_address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btn_login"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nav2MockLogin" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/btn_loading"
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="加载" />
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/et_name"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="input name value" />
+
+                            <Button
+                                android:id="@+id/btn_set_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="setName" />
+
+                        </LinearLayout>
 
                         <Button
-                            android:id="@+id/btn_fail"
+                            android:id="@+id/btn_vm_post"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="失败" />
-
-                        <Button
-                            android:id="@+id/btn_success"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="成功" />
+                            android:text="VM POST VALUE" />
                     </LinearLayout>
 
-                    <com.dullyoung.jetpackdemo.view.PathMeasureView
-                        android:id="@+id/pmv"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_user_pid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_first_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/tv_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btn_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="nav2MockLogin" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btn_loading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="加载" />
+
+                            <Button
+                                android:id="@+id/btn_fail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="失败" />
+
+                            <Button
+                                android:id="@+id/btn_success"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="成功" />
+                        </LinearLayout>
+
+                        <com.dullyoung.jetpackdemo.view.PathMeasureView
+                            android:id="@+id/pmv"
+                            android:layout_width="300dp"
+                            android:layout_height="300dp" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
-
-
-            </LinearLayout>
-        </ScrollView>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 

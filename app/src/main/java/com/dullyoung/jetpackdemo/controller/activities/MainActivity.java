@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initViews() {
+        //nav2FireworkActivity
+      //  startActivity(new Intent(this,FireworkActivity.class));
         mBinding.dl.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {

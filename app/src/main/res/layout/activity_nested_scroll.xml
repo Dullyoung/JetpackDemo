@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controller.activities.NestedScrollActivity">
+    <com.dullyoung.jetpackdemo.view.NestedScrollViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="2000dp">
+
+        <com.dullyoung.jetpackdemo.view.NestedScrollViewChild
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/tv_bg2"
+                android:gravity="center"
+                android:text="a\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\n" />
+
+        </com.dullyoung.jetpackdemo.view.NestedScrollViewChild>
+
+        <com.dullyoung.jetpackdemo.view.NestedScrollViewChild
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/tv_bg1"
+                android:gravity="center"
+                android:text="a\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n
+                a\na\na\na\na\na\na\na\n" />
+
+        </com.dullyoung.jetpackdemo.view.NestedScrollViewChild>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="#faabcd" />
+    </com.dullyoung.jetpackdemo.view.NestedScrollViewGroup>
+
+
+
+
+</LinearLayout>

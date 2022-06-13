@@ -1,0 +1,59 @@
+ext {
+
+    android = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3",
+            applicationId    : "com.dullyoung.jetpackdemo",
+            minSdkVersion    : 23,
+            targetSdkVersion : 30,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+
+    androidxDeps = [
+            appcompat       : 'androidx.appcompat:appcompat:1.2.0',
+            constraintlayout: 'androidx.constraintlayout:constraintlayout:2.0.4',
+            material        : 'com.google.android.material:material:1.4.0',
+            junit           : 'junit:junit:4.12',
+            androidJunit    : 'androidx.test.ext:junit:1.1.2',
+            androidEspresso : 'androidx.test.espresso:espresso-core:3.3.0'
+    ]
+
+    commonDeps = [
+            "arouter_api": 'com.alibaba:arouter-api:1.5.2',
+            "glide"      : 'com.github.bumptech.glide:glide:4.11.0'
+
+    ]
+
+    annotationDeps = [
+            "arouter_compiler": 'com.alibaba:arouter-compiler:1.5.2'
+    ]
+
+    rxjava = [
+            //RxJava关联生命周期
+            "life"     : 'com.trello.rxlifecycle2:rxlifecycle:2.2.1',
+            "lifea"    : 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1',
+            "lifec"    : 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1',
+            "rxbinding": 'com.jakewharton.rxbinding4:rxbinding:4.0.0',
+            "rxjava"   : 'io.reactivex.rxjava2:rxjava:2.2.20',
+            "rxandroid": 'io.reactivex.rxjava2:rxandroid:2.1.1',
+    ]
+
+    http = [
+            "gson"              : 'com.google.code.gson:gson:2.9.0',
+            "okhttp"            : "com.squareup.okhttp3:okhttp:4.9.0",
+            "okhttp-interceptor": "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    ]
+
+    utils = [
+            "blankj": 'com.blankj:utilcode:1.30.0'
+    ]
+    ui = [
+            "rv_adapter": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    ]
+
+    androidxLibs = androidxDeps.values()
+    commonLibs = commonDeps.values()
+    annotationLibs = annotationDeps.values()
+}

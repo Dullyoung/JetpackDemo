@@ -1,15 +1,16 @@
-package com.dullyoung.jetpackdemo.controller.activities;
+package com.dullyoung.baselib.base;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.dullyoung.jetpackdemo.Config;
-import com.dullyoung.jetpackdemo.controller.listener.Custom3Observer;
+
+import com.dullyoung.baselib.listener.Custom3Observer;
 import com.jakewharton.rxbinding4.view.RxView;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +18,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.rxjava3.annotations.NonNull;
 import kotlin.Unit;
 
 /**
@@ -56,7 +56,7 @@ public abstract class BaseAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder>
 
 
     protected void clickTrigger(View view, Runnable runnable) {
-        RxView.clicks(view).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS)
+        RxView.clicks(view).throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(new Custom3Observer<Unit>() {
                     @Override
                     public void onResult(Unit unit) {
@@ -68,10 +68,10 @@ public abstract class BaseAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder>
     @Override
     protected void bindViewClickListener(@NotNull BaseViewHolder viewHolder, int viewType) {
 
-        RxView.clicks(viewHolder.itemView).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS).subscribe(
+        RxView.clicks(viewHolder.itemView).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(
                 new Custom3Observer<Unit>() {
                     @Override
-                    public void onResult(@NonNull Unit unit) {
+                    public void onResult(@androidx.annotation.NonNull Unit unit) {
                         if (!isClickable()) {
                             return;
                         }
@@ -86,9 +86,9 @@ public abstract class BaseAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder>
                 }
         );
 
-        RxView.longClicks(viewHolder.itemView).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS).subscribe(new Custom3Observer<Unit>() {
+        RxView.longClicks(viewHolder.itemView).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe(new Custom3Observer<Unit>() {
             @Override
-            public void onResult(@NonNull Unit unit) {
+            public void onResult(@androidx.annotation.NonNull Unit unit) {
                 if (!isClickable()) {
                     return;
                 }
@@ -104,7 +104,7 @@ public abstract class BaseAdapter<T> extends BaseQuickAdapter<T, BaseViewHolder>
 
         if (getOnItemChildClickListener() != null) {
             for (int id : getChildClickViewIds()) {
-                RxView.clicks(viewHolder.getView(id)).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS)
+                RxView.clicks(viewHolder.getView(id)).throttleFirst(500, TimeUnit.MILLISECONDS)
                         .subscribe(new Custom3Observer<Unit>() {
                             @Override
                             public void onResult(@NonNull Unit unit) {

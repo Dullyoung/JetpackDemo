@@ -14,6 +14,7 @@
         android:icon="@drawable/iconaaaa"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.activities.NestedScrollActivity"></activity>
         <activity android:name=".controller.activities.FireworkActivity" />

@@ -1,4 +1,4 @@
-package com.dullyoung.jetpackdemo.controller.activities;
+package com.dullyoung.baselib.base;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,9 +9,8 @@ import androidx.core.content.ContextCompat;
 import androidx.viewbinding.ViewBinding;
 
 
-import com.dullyoung.jetpackdemo.Config;
-import com.dullyoung.jetpackdemo.controller.listener.Custom3Observer;
-import com.dullyoung.jetpackdemo.utils.LogUtil;
+import com.dullyoung.baselib.listener.Custom3Observer;
+import com.dullyoung.baselib.utils.LogUtil;
 import com.jakewharton.rxbinding4.view.RxView;
 
 import java.lang.reflect.Method;
@@ -61,7 +60,7 @@ public abstract class BaseView<T extends ViewBinding> extends ConstraintLayout {
     }
 
     protected void clickTrigger(View view, Runnable runnable) {
-        RxView.clicks(view).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS)
+        RxView.clicks(view).throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(new Custom3Observer<Unit>() {
                     @Override
                     public void onResult(Unit unit) {

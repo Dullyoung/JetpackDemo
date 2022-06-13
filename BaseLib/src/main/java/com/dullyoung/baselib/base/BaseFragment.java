@@ -1,4 +1,4 @@
-package com.dullyoung.jetpackdemo.controller.activities;
+package com.dullyoung.baselib.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.viewbinding.ViewBinding;
 
 
-import com.dullyoung.jetpackdemo.Config;
-import com.dullyoung.jetpackdemo.R;
-import com.dullyoung.jetpackdemo.controller.listener.Custom3Observer;
+import com.dullyoung.baselib.listener.Custom3Observer;
 import com.jakewharton.rxbinding4.view.RxView;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -60,7 +58,7 @@ public abstract class BaseFragment<T extends ViewBinding> extends RxFragment {
     }
 
     protected void clickLoginTrigger(View view, Runnable runnable) {
-        RxView.clicks(view).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS)
+        RxView.clicks(view).throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(new Custom3Observer<Unit>() {
                     @Override
                     public void onResult(Unit unit) {
@@ -70,7 +68,7 @@ public abstract class BaseFragment<T extends ViewBinding> extends RxFragment {
     }
 
     protected void clickTrigger(View view, Runnable runnable) {
-        RxView.clicks(view).throttleFirst(Config.CLICK_INTERVAL, TimeUnit.MILLISECONDS)
+        RxView.clicks(view).throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(new Custom3Observer<Unit>() {
                     @Override
                     public void onResult(Unit unit) {

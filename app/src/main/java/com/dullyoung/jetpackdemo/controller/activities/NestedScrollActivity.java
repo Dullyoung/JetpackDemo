@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.dullyoung.baselib.base.BaseActivity;
 import com.dullyoung.jetpackdemo.R;
 import com.dullyoung.jetpackdemo.databinding.ActivityNestedScrollBinding;
 

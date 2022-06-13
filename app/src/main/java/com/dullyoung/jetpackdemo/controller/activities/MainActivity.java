@@ -18,6 +18,9 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.dullyoung.baselib.base.BaseActivity;
 import com.dullyoung.jetpackdemo.MWorkManager;
 import com.dullyoung.jetpackdemo.controller.viewModel.NameViewModel;
 import com.dullyoung.jetpackdemo.controller.viewModel.UserInfoViewModel;
@@ -40,7 +43,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initViews() {
-        startActivity(new Intent(this, NestedScrollActivity.class));
+        ARouter.getInstance().build("/A/main").withString("key", "I am from app main").navigation();
         //nav2FireworkActivity
         //  startActivity(new Intent(this,FireworkActivity.class));
         mBinding.dl.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {

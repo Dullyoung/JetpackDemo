@@ -1,4 +1,4 @@
-package com.dullyoung.jetpackdemo.controller.activities;
+package com.dullyoung.baselib.base;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,10 +6,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-
 import com.blankj.utilcode.util.ActivityUtils;
-import com.dullyoung.jetpackdemo.Config;
-import com.dullyoung.jetpackdemo.R;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -153,7 +151,6 @@ public class BaseEngine {
         String msg = "";
         if (e instanceof UnknownHostException
                 || e instanceof SocketTimeoutException
-                || e.toString().contains(Config.BASE_URL)
                 || e.toString().contains("<head><title>404 Not Found</title></head>")
                 || e.toString().contains("<head><title>502 Bad Gateway</title></head>")) {
             msg = "Network Error";

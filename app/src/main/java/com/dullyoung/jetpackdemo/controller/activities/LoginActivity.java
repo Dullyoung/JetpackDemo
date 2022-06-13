@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.dullyoung.baselib.base.BaseActivity;
 import com.dullyoung.jetpackdemo.controller.viewModel.UserInfoViewModel;
 import com.dullyoung.jetpackdemo.database.bean.UserInfo;
 import com.dullyoung.jetpackdemo.databinding.ActivityLoginBinding;

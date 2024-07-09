@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
+import android.os.BatteryManager;
 import android.util.Log;
 import android.view.View;
 
@@ -43,7 +44,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initViews() {
-        ARouter.getInstance().build("/A/main").withString("key", "I am from app main").navigation();
+//        ARouter.getInstance().build("/A/main").withString("key", "I am from app main").navigation();
         //nav2FireworkActivity
         //  startActivity(new Intent(this,FireworkActivity.class));
         mBinding.dl.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
@@ -98,6 +99,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         mBinding.btnVmPost.setOnClickListener(view -> {
             nameViewModel.postName();
+        });
+
+        mBinding.btnBattery.setOnClickListener(v -> {
+            startActivity(BatteryActivity.class);
+        });
+        mBinding.btnBattery.setOnClickListener(v -> {
+            startActivity(WebActivity.class);
         });
 
         mBinding.btnSetName.setOnClickListener(view -> {

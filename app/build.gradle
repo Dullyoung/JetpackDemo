@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    compileSdk rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
@@ -20,6 +19,7 @@ android {
     }
 
     buildFeatures {
+        aidl true
         viewBinding true
     }
 

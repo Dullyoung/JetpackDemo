@@ -4,9 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ComposePathEffect;
+import android.graphics.CornerPathEffect;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PathDashPathEffect;
 import android.graphics.RectF;
+import android.graphics.SumPathEffect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -75,13 +80,24 @@ public class CountDownView extends View {
     private void initPaint() {
         paint = new Paint();
         paint.setColor(Color.GRAY);
+        paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
         //控制圆环的宽度
         paint.setStrokeWidth(100);
         paint.setStrokeCap(Paint.Cap.BUTT);
+//-----------------------自定义虚线样式的虚线圆形
+//        Path dashPath = new Path();
+//        //使用自定义path去做pathEffect,这时候原paint的宽度（paint.setStrokeWidth(100);）将无效
+//        // 每个需要的宽高圆角用rect去处理
+//        dashPath.addRoundRect(new RectF(0, 0, 10, 40), 5, 5, Path.Direction.CW);
+//        //advance是每个虚线的间距
+//        PathDashPathEffect pathDashPathEffect = new PathDashPathEffect(dashPath, 50, 0,
+//                PathDashPathEffect.Style.ROTATE);
+//        paint.setPathEffect(pathDashPathEffect);
+//-----------------------
+
         //float[] 奇数参数表示绘制的宽度 偶数表示间隔的宽度
         paint.setPathEffect(new DashPathEffect(new float[]{20f, 50f}, 0));
-
         centerRound = new Paint();
         centerRound.setColor(Color.WHITE);
 
@@ -105,6 +121,7 @@ public class CountDownView extends View {
         super.onDraw(canvas);
         //画外圈刻度 为了能动态改变刻度宽度 就只能从0开始画刻度 而不是直接画圆
         rect.set(150, 150, getWidth() - 150, getHeight() - 150);
+//        canvas.drawArc(rect, 135, 270f, false, paint);
         for (int i = 0; i <= 360; i += 5) {
             if (Math.abs(i - pointAngle) < 30) {
                 paint.setStrokeWidth(100 + 2 * (30 - Math.abs(i - pointAngle)));

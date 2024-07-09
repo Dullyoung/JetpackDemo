@@ -41,6 +41,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <Button
+                        android:id="@+id/btn_battery"
+                        android:text="电量信息"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <Button
+                        android:id="@+id/btn_web"
+                        android:text="webview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.dullyoung.jetpackdemo.view.CountDownView
+                        android:layout_width="300dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="300dp" />
+
+
                     <com.dullyoung.jetpackdemo.view.MenuItem
                         android:layout_width="match_parent"
                         android:layout_height="100dp"

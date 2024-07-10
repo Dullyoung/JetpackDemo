@@ -104,8 +104,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.btnBattery.setOnClickListener(v -> {
             startActivity(BatteryActivity.class);
         });
-        mBinding.btnBattery.setOnClickListener(v -> {
-            startActivity(WebActivity.class);
+        mBinding.btnWeb.setOnClickListener(v -> {
+            WebActivity.start(getContext());
         });
 
         mBinding.btnSetName.setOnClickListener(view -> {

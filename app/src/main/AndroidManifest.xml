@@ -24,6 +24,10 @@
         <activity
             android:name=".controller.activities.WebActivity"
             android:exported="false"
+            android:label="WebViewProcess"
+            android:icon="@drawable/ic_launcher_background"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.dullyoung.jetpackdemo.webview"
             android:process=":webProcess" />
         <activity
             android:name=".controller.activities.BatteryActivity"

@@ -1,10 +1,15 @@
 package com.dullyoung.jetpackdemo.controller.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Process;
@@ -19,8 +24,23 @@ import com.dullyoung.jetpackdemo.utils.LogUtil;
 
 public class WebActivity extends BaseActivity<ActivityWebBinding> {
 
+    public static void start(Context context){
+        Intent intent =new Intent(context,WebActivity.class);
+
+        context.startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setTaskDescription(new ActivityManager.TaskDescription("Webview", BitmapFactory.decodeResource(getResources(),
+                R.drawable.brvah_sample_footer_loading)));
+        supportInvalidateOptionsMenu();
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     protected void initViews() {
+
         initService();
         clickTrigger(mBinding.btnShow, () -> {
             try {
